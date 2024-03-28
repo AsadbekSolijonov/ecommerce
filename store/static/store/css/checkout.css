@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.user-info, .shipping-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.form-field {
+    display: block;
+    width: 49%;
+}
+
+@media screen and (max-width: 1199px) {
+    .form-field {
+        display: block;
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .form-field {
+        display: block;
+        width: 49%;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .form-field {
+        display: block;
+        width: 100%;
+    }
+
+}

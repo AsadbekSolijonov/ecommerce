@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.img-large {
+    height: 35rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

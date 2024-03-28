@@ -1,0 +1,65 @@
+1. Papka yaratiladi
+    - Loyiha nomi:
+        - 'ecommerce' ->> [Loyiha nomi ixtiyoriy]
+2. py -m venv venv
+    - Virtual muhit yaratib olish uchun.
+    Windows:
+        - cd/venv
+        - cd/Scripts
+        - activate
+    MacOS:
+        - source /venv/bin/activate
+
+    Muhit ichida qaysi kutubxona borligini bilish uchun.
+        - pip freeze
+
+    Install:
+        - pip install django
+            - FullStack loyiha ishlatish uchun.
+        - pip install Pillow
+            - Rasm bilan ishlash uchun.
+        - pip install django-jazzmin
+            -adminkani chiroyli qilish uchun
+
+3. django-admin startproject config .
+    - Biz uchun django sever sozlamalari papkasini va fayllarini yaratib beradi.
+
+4. python manage.py startapp <app_name>
+    - Bu kod bizga loyihani app ni yaratish uchun ishlatiladi.
+
+5. config/settings.py > INSTALLED_APPS = [...,'app_name']
+    - settings fayl ichida INSTALLED_APPS ni oxiriga [app_nomi] qo'shib qo'yiladi
+
+6. python manage.py migrate
+    - Bu kod ma'lumotlar ba'zasida django modellarni yaratib oladi.
+
+7. python manage.py createsuperuser
+    - Bu kod adminkaga kirishga login va parol yaratib olish maqsadida ishlatiladi.
+
+8. python manage.py runserver
+    - Bu kod loyihani ishga tushurish maqsadida ishlatiladi.
+
+
+Qoida:
+    requirements.txt:
+        - Bu loyihamiz uchun ishlatilgan barcha kutubxonlarni to'plab turish uchun kerak.
+
+        Kerak bo'ladigan vaziyatlar:
+            1. Serverga yuklaganda va ishga tushurganda.
+            2. Boshqa dasturchi sizni loyihangizni noldan ko'tarmoqchi bo'lsa
+            3. Darstuchi loyiha uchun qanday kutubxonlar o'rnatilganligini bilishni xohlasa.
+            4. O'zingiz boshqa kampyuterni shu loyihangizni davom ettirmoqchi bo'lganingizda.
+
+    Requirements:
+        windows & Macos & linux:
+            - pip freeze > requirements.txt
+                - bu barcha kutubxonlarni bittada yozish kodi:
+        requirements install:
+            - pip install -r requirements.txt
+                - Bu barcha kutubxonalarni bittada o'rnatish kamandasi kodi.
+
+
+
+
+
+

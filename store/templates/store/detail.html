@@ -1,0 +1,110 @@
+<!-- BASE -->
+{% extends 'base.html' %}
+<!-- /BASE -->
+
+<!-- STATIC -->
+{% load static %}
+<!-- /STATIC -->
+
+<!-- CSS -->
+{% block style %}
+    <link rel="stylesheet" href="{% static '/store/css/detail.css' %}">
+{% endblock %}
+<!-- /CSS -->
+
+<!-- Title -->
+{% block title %}
+    Detail
+{% endblock %}
+<!-- /Title -->
+
+<!-- BreadCrumbs -->
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none text-primary" href="{% url 'store:store' %}">
+            <i class="bi bi-house-door-fill"></i>
+            Store
+        </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+        Detail
+    </li>
+{% endblock %}
+<!-- /BreadCrumbs -->
+
+<!-- Content -->
+{% block content %}
+
+    <!-- Detail -->
+    <div class="row mb-4">
+
+        <!-- Detail Images -->
+        <div class="col-6">
+            <div class="row">
+                <!-- Vertical Images -->
+                <div class="col-2 img-large">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
+                         src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                </div>
+                <!-- /Vertical Images -->
+
+                <!-- Large One image -->
+                <div class="col-10 p-0">
+                    <img class="img-large img-fluid object-fit-cover" src="{% static '/store/images/hd1080.png' %}"
+                         alt="rasm">
+                </div>
+                <!-- /Large One image -->
+            </div>
+        </div>
+        <!-- /Detail Images -->
+
+        <!-- Detail Article -->
+        <div class="col-6">
+            <h3>Lorem</h3>
+            <hr>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque excepturi magnam nemo quis veniam voluptas.
+            Explicabo id obcaecati sapiente sed voluptatem. Dolorum expedita itaque nisi odit. Accusamus architecto
+            assumenda ullam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur corporis eaque
+            est expedita explicabo impedit ipsam nesciunt nostrum obcaecati omnis porro qui, quo repellendus sit, totam
+            vel voluptas. Reiciendis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate earum eos
+            inventore magni porro, ullam vero voluptas voluptatem? A accusantium aperiam dolores explicabo fugiat
+            <hr>
+            <span>Type: </span>
+            <button class="btn btn-outline-dark">XX</button>
+            <button class="btn btn-outline-dark">XL</button>
+            <button class="btn btn-outline-dark">XXL</button>
+            <button class="btn btn-outline-dark">L</button>
+        </div>
+        <!-- /Detail Article -->
+
+    </div>
+    <!-- /Detail -->
+
+    <hr>
+    <span class="mx-3 fw-normal me-auto">Mahsulot tavsifi</span>
+    <span class="mx-3 me-auto">Sharhlar (1) </span>
+    <hr>
+    <div class="mb-4">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab accusantium aliquid aperiam aut corporis dolore
+        dolorum eligendi eveniet, itaque laboriosam laborum nesciunt nobis nulla possimus rerum similique, suscipit
+        voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut cumque deleniti ducimus eos
+        illo, ipsum itaque magnam maiores perferendis quaerat quia quo reiciendis repellat repellendus repudiandae sequi
+        sint. Nobis.
+    </div>
+
+{% endblock %}
+<!-- /Content -->

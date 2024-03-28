@@ -1,0 +1,158 @@
+<!-- BASE -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- /BASE -->
+
+<!-- Title -->
+{% block title %} Checkout {% endblock %}
+<!-- /Title -->
+
+<!-- CSS -->
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/checkout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/cart.css' %}">
+{% endblock %}
+<!-- /CSS -->
+
+
+<!-- BreadCrumbs -->
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none text-primary" href="{% url 'store:store' %}">
+            <i class="bi bi-house-door-fill"></i>
+            Store
+        </a>
+    </li>
+    <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none text-primary"
+           href="{% url 'store:cart' %}">Cart</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+        Checkout
+    </li>
+{% endblock %}
+<!-- /BreadCrumbs -->
+
+<!-- Content -->
+{% block content %}
+
+    <!-- Checkout -->
+    <div class="row">
+
+        <!-- Col 1 Input Forms -->
+        <div class="col-lg-6 my-2">
+            <div class="shadow form-wrapper rounded p-3">
+                <form action="" method="">
+                    <!-- User info -->
+                    <p class="fw-normal">User Information</p>
+                    <div class="user-info">
+                        <div class="form-field">
+                            <input class="form-control" type="text" name="name" placeholder="Name...">
+                        </div>
+                        <div class="form-field">
+                            <input class="form-control" type="email" name="email" placeholder="Email...">
+                        </div>
+                    </div>
+                    <!-- User info -->
+                    <hr>
+                    <!-- Shipping Information -->
+                    <p class="fw-normal">Shipping Information</p>
+                    <div class="shipping-info">
+                        <div class="form-field">
+                            <input class="form-control" type="text" name="address" placeholder="Place..">
+                        </div>
+                        <div class="form-field">
+                            <input class="form-control" type="text" name="city" placeholder="City..">
+                        </div>
+                        <div class="form-field">
+                            <input class="form-control" type="text" name="state" placeholder="State..">
+                        </div>
+                        <div class="form-field">
+                            <input class="form-control" type="text" name="zipcode" placeholder="ZipCode..">
+                        </div>
+                        <div class="form-field">
+                            <input class="form-control" type="text" name="zipcode" placeholder="ZipCode..">
+                        </div>
+
+                    </div>
+                    <hr>
+                    <button type="button" id="form-button" class="btn btn-success btn-block w-100">Continue</button>
+                    <!-- /Shipping Information -->
+                </form>
+            </div>
+            <br>
+
+            <!-- PayPal -->
+            <div class="shadow rounded text-center p-3 mb-3" id="payment-info">
+                <i class="bi bi-paypal"></i> PayPal Options
+            </div>
+            <!-- /PayPal -->
+        </div>
+        <!-- /Col 1 Input Forms -->
+
+
+        <!-- Col 2 Checkout Total -->
+        <div class="col-lg-6 my-2">
+
+            <div class="shadow rounded p-3 mb-4">
+                <!-- Back to Shopping -->
+                <button class="btn btn-outline-dark">
+                    <a class="icon-link icon-link-hover fs-6 text-decoration-none link-hover-white"
+                       style="--bs-icon-link-transform: translate(-0.325rem, 0); --bs-link-hover-color-rgb: white; --bs-link-color-rgb: yellow;"
+                       href="{% url 'store:cart' %}">
+                        <svg class="bi" aria-hidden="true">
+                            <i class="bi bi-arrow-left"></i>
+                        </svg>
+                        Back
+                    </a>
+                </button>
+
+                <button class="btn btn-primary">
+                    <a class="icon-link icon-link-hover fs-6 text-decoration-none link-hover-white"
+                       style="--bs-icon-link-transform: translate(-0.325rem, 0); --bs-link-hover-color-rgb: white; --bs-link-color-rgb: yellow;"
+                       href="{% url 'store:store' %}">
+                        <svg class="bi" aria-hidden="true">
+                            <i class="bi bi-arrow-left"></i>
+                        </svg>
+                        Back to Shopping
+                    </a>
+                </button>
+                <!-- /Back to Shopping -->
+
+                <!-- Order Summary -->
+                <hr>
+                <p class="fs-5 fw-normal">Order Summary</p>
+                <hr>
+                <div class="d-flex bg-hover align-items-center">
+                    <div class="flex-1">
+                        <img class="img-fluid img_card object-fit-cover rounded"
+                             src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    </div>
+                    <div class="flex-1">Product</div>
+
+                    <!-- Count up/down-->
+                    <div class="d-flex align-items-center p-2 flex-1">
+                        <span>2</span>
+                        <span>
+                        <div class="p-2 d-flex flex-column">
+                            <i class="bi bi-caret-up-fill"></i>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                    </span>
+                    </div>
+                    <!-- /Count up/down-->
+
+                    <div class="flex-1">$23</div>
+                </div>
+                <!-- /Order Summary -->
+                <hr>
+                <h5>Items: 3</h5>
+                <h5>Total: $40</h5>
+            </div>
+        </div>
+        <!-- /Col 2 Checkout Total -->
+    </div>
+    <!-- /Checkout -->
+
+{% endblock %}
+<!-- /Content -->

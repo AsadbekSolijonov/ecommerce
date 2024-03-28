@@ -1,0 +1,93 @@
+<!-- BASE -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- /BASE -->
+
+<!-- Title -->
+{% block title %} Store {% endblock %}
+<!-- /Title -->
+
+<!-- CSS -->
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/store.css' %}">
+{% endblock %}
+<!-- /CSS -->
+
+<!-- BreadCrumbs -->
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active" aria-current="page">
+        <i class="bi bi-house-door-fill"></i>
+        Store
+    </li>
+{% endblock %}
+<!-- /BreadCrumbs -->
+
+<!-- Content -->
+{% block content %}
+
+    <!-- Store -->
+    <div class="row">
+
+        <!-- Store List -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="image-zoom rounded">
+                <img class="img-focus img-fluid object-fit-cover"
+                     src="{% static 'store/images/600x400.gif' %}" alt="rasm">
+            </div>
+            <div class="box-element p-2">
+                <h6><b>Product</b></h6>
+                <hr>
+                <button class="btn btn-outline-dark">Add to Card</button>
+                <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' %}">View</a></button>
+                <h4 style="display: inline-block; float: right">$20</h4>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="image-zoom rounded">
+                <img class="img-focus img-fluid object-fit-cover"
+                     src="{% static 'store/images/600x900.jpg' %}" alt="rasm">
+            </div>
+            <div class="box-element p-2">
+                <h6><b>Product</b></h6>
+                <hr>
+                <button class="btn btn-outline-dark">Add to Card</button>
+                <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' %}">View</a></button>
+                <h4 style="display: inline-block; float: right">$20</h4>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="image-zoom rounded">
+                <img class="img-focus img-fluid object-fit-cover"
+                     src="{% static 'store/images/240x400.png' %}" alt="rasm">
+            </div>
+            <div class="box-element p-2">
+                <h6><b>Product</b></h6>
+                <hr>
+                <button class="btn btn-outline-dark">Add to Card</button>
+                <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' %}">View</a></button>
+                <h4 style="display: inline-block; float: right">$20</h4>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="image-zoom rounded">
+                <img class="img-focus img-fluid object-fit-cover"
+                     src="{% static 'store/images/hd1080.png' %}" alt="rasm">
+            </div>
+            <div class="box-element p-2">
+                <h6><b>Product</b></h6>
+                <hr>
+                <button class="btn btn-outline-dark">Add to Card</button>
+                <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' %}">View</a></button>
+                <h4 style="display: inline-block; float: right">$20</h4>
+            </div>
+        </div>
+        <!-- /Store List -->
+
+    </div>
+    <!-- /Store -->
+
+{% endblock %}
+<!-- /Content -->

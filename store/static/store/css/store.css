@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.img-focus {
+    height: 22rem !important;
+    width: 100vw !important;
+}
+
+.image-zoom {
+    height: 22rem !important;
+    overflow: hidden;
+}
+
+.image-zoom img {
+    transition: transform .5s ease;
+}
+
+.image-zoom:hover img {
+    transform: scale(1.3);
+}

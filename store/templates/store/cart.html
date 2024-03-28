@@ -1,0 +1,134 @@
+<!-- BASE -->
+{% extends 'base.html' %}
+{% load static %}
+<!-- /BASE -->
+
+<!-- Title -->
+{% block title %} Cart {% endblock %}
+<!-- /Title -->
+
+<!-- CSS -->
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'store/css/cart.css' %}">
+{% endblock %}
+<!-- /CSS -->
+
+<!-- BreadCrumbs -->
+{% block breadcrumbs %}
+    <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none text-primary" href="{% url 'store:store' %}">
+            <i class="bi bi-house-door-fill"></i>
+            Store
+        </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+        Cart
+    </li>
+{% endblock %}
+<!-- /BreadCrumbs -->
+
+<!-- Content-->
+{% block content %}
+
+    <!-- Cart -->
+    <div class="row mb-4">
+
+        <!-- Total -->
+        <div class="col-12 fs-5 sticky-top">
+            <div class="shadow bg-white p-3 rounded">
+                <!-- Back to Shopping -->
+                <button class="btn btn-primary">
+                    <a class="icon-link icon-link-hover fs-6 text-decoration-none link-hover-white"
+                       style="--bs-icon-link-transform: translate(-0.325rem, 0); --bs-link-hover-color-rgb: white; --bs-link-color-rgb: yellow;"
+                       href="{% url 'store:store' %}">
+                        <svg class="bi" aria-hidden="true">
+                            <i class="bi bi-arrow-left"></i>
+                        </svg>
+                        Back to Shopping
+                    </a>
+                </button>
+                <!-- /Back to Shopping -->
+
+                <br>
+
+                <!-- Header Show Total Price -->
+                <table class="table">
+                    <tr>
+                        <th>Items: 3</th>
+                        <th>Total: $45</th>
+                        <th>
+                            <a class="btn btn-success float-end icon-link icon-link-hover d-flex align-items-center"
+                               href="{% url 'store:checkout' %}"
+                               style="--bs-icon-link-transform: translate3d(0, -.125rem, 0); height: 3rem;">
+                                <i class="bi bi-file-earmark-text"></i>
+                                Checkout
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+                <!-- /Header Show Total Price -->
+            </div>
+        </div>
+        <!-- /Total -->
+
+        <!-- Product List -->
+        <div class="col-12 my-3">
+            <div class="shadow bg-white p-3 rounded">
+                <!-- Header -->
+                <div class="display-flex fs-6">
+                    <div class="p-2 flex-1"></div>
+                    <div class="p-2 flex-2 fw-bold">Items</div>
+                    <div class="p-2 flex-1 fw-bold">Price</div>
+                    <div class="p-2 flex-1 fw-bold">Quantity</div>
+                    <div class="p-2 flex-1 fw-bold">Total</div>
+                </div>
+                <!-- /Header -->
+                <br>
+                <!-- Body -->
+                <div class="display-flex bg-hover align-items-center">
+                    <div class="p-2 flex-1 image-zoom">
+                        <img class="img-fluid img_card object-fit-cover rounded"
+                             src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    </div>
+                    <div class="p-2 flex-2">Product</div>
+                    <div class="p-2 flex-1">$23</div>
+                    <div class="d-flex align-items-center p-2 flex-1">
+                        <span>2</span>
+                        <span>
+                        <div class="p-2">
+                            <i class="bi bi-caret-up-fill"></i>
+                            <br>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                    </span>
+                    </div>
+                    <div class="p-2 flex-1">$46</div>
+                </div>
+                <div class="display-flex bg-hover align-items-center">
+                    <div class="p-2 flex-1 image-zoom">
+                        <img class="img-fluid img_card object-fit-cover rounded"
+                             src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                    </div>
+                    <div class="p-2 flex-2">Product</div>
+                    <div class="p-2 flex-1">$23</div>
+                    <div class="d-flex align-items-center p-2 flex-1">
+                        <span>2</span>
+                        <span>
+                        <div class="p-2">
+                            <i class="bi bi-caret-up-fill"></i>
+                            <br>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                    </span>
+                    </div>
+                    <div class="p-2 flex-1">$46</div>
+                </div>
+                <!-- /Body -->
+            </div>
+        </div>
+        <!-- /Product List -->
+    </div>
+    <!-- /Cart -->
+
+{% endblock %}
+<!-- /Content-->

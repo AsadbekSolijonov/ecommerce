@@ -1,0 +1,43 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mars Commerce</a>
+        <!-- Basket -->
+        <a type="button" class="btn btn-warning border-0 position-relative d-block d-sm-block d-md-block d-lg-none d-xl-none d-xxl-none" href="{% url 'store:cart' %}">
+            <i class="bi bi-cart4"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> 0 </span>
+        </a>
+        <!-- /Basket -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <!-- User -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        Hello, {{ user.is_authenticated|default:'Guest' }}
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Login</a>
+                        <a class="dropdown-item" href="#">Register</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- /User -->
+
+            <!-- Basket -->
+            <a type="button" class="btn btn-warning border-0 position-relative d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block" href="{% url 'store:cart' %}">
+                <i class="bi bi-cart4"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> 0 </span>
+            </a>
+            <!-- /Basket -->
+        </div>
+
+    </div>
+</nav>
+<!-- /Navbar -->
+
