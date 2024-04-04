@@ -35,11 +35,13 @@
                      src="{{ product.image.url }}" alt="rasm">
             </div>
             <div class="box-element p-2">
-                <h6><b>{{ product.name }}</b></h6>
+                <b>{{ product.name }}</b>
                 <hr>
-                <button class="btn btn-outline-dark">Add to Card</button>
-                <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' %}">View</a></button>
-                <h4 style="display: inline-block; float: right">$ {{ product.price | floatformat:0 }}</h4>
+                <div class="display-flex flex-wrap">
+                    <button class="btn btn-outline-dark">Add to Card</button>
+                    <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' product.id %}">View</a></button>
+                    <h4 style="display: inline-block; float: right">$ {{ product.price | floatformat:0 }}</h4>
+                </div>
             </div>
         </div>
         <!-- /Store List -->

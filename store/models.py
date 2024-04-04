@@ -32,3 +32,8 @@ class Product(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    @property
+    def get_absolute_url(self):
+        # Code write
+        return None
