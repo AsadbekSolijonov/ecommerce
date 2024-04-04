@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class TimeStampedModel(models.Model):
@@ -27,6 +28,7 @@ class Product(TimeStampedModel):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
+    docs = RichTextField()
     image = models.ImageField(upload_to='product_img/')
     price = models.DecimalField(decimal_places=2, max_digits=8)
 
