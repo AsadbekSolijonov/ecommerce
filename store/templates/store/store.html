@@ -29,26 +29,25 @@
     <div class="row">
         <!-- Store List -->
         {% for product in products %}
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-            <div class="image-zoom rounded">
-                <img class="img-focus img-fluid object-fit-cover"
-                     src="{{ product.image.url }}" alt="rasm">
-            </div>
-            <div class="box-element p-2">
-                <b>{{ product.name }}</b>
-                <hr>
-                <div class="display-flex flex-wrap">
-                    <button class="btn btn-outline-dark">Add to Card</button>
-                    <button class="btn btn-warning"><a class="text-decoration-none" href="{% url 'store:detail' product.id %}">View</a></button>
-                    <h4 style="display: inline-block; float: right">$ {{ product.price | floatformat:0 }}</h4>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="image-zoom rounded">
+                    <img class="img-focus img-fluid object-fit-cover"
+                         src="{{ product.image_url }}" alt="rasm">
+                </div>
+                <div class="box-element p-2">
+                    <b>{{ product.name }}</b>
+                    <hr>
+                    <div class="display-flex flex-wrap">
+                        <button class="btn btn-outline-dark">Add to Card</button>
+                        <button class="btn btn-warning"><a class="text-decoration-none"
+                                                           href="{% url 'store:detail' product.id %}">View</a></button>
+                        <h4 style="display: inline-block; float: right">$ {{ product.price | floatformat:0 }}</h4>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- /Store List -->
+            <!-- /Store List -->
         {% endfor %}
-
     </div>
     <!-- /Store -->
-
 {% endblock %}
 <!-- /Content -->

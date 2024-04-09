@@ -44,27 +44,27 @@
                     <!-- Vertical Images -->
                     <div class="col-2 img-large">
                         <img class="object-fit-cover" style="width: 80px; height: 90px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                         <img class="object-fit-cover" style="width: 80px; height: 90px; margin-top: 10px;"
-                             src="{{ product.image.url }}" alt="rasm">
+                             src="{{ product.image_url }}" alt="rasm">
                     </div>
                     <!-- /Vertical Images -->
 
                     <!-- Large One image -->
                     <div class="col-10 p-0">
-                        <img class="img-large img-fluid object-fit-cover" src="{{ product.image.url }}"
+                        <img class="img-large img-fluid object-fit-cover" src="{{ product.image_url }}"
                              alt="rasm">
                     </div>
                     <!-- /Large One image -->
@@ -77,13 +77,6 @@
                 <h3>{{ product.name }}</h3>
                 <hr>
                 {{ product.description }}
-                <hr>
-                <span>Type: </span>
-                <button class="btn btn-outline-dark">XX</button>
-                <button class="btn btn-outline-dark">XL</button>
-                <button class="btn btn-outline-dark">XXL</button>
-                <button class="btn btn-outline-dark">L</button>
-
                 <!-- Buttons -->
                 <div class="box-element p-2">
                     <br>
@@ -119,18 +112,13 @@
 
         <hr>
         <span class="mx-3 fw-normal me-auto">Mahsulot tavsifi</span>
-        <span class="mx-3 me-auto">Sharhlar (1) </span>
+        <span class="mx-3 me-auto">Sharhlar (231) </span>
         <hr>
+
         <div class="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab accusantium aliquid aperiam aut corporis
-            dolore
-            dolorum eligendi eveniet, itaque laboriosam laborum nesciunt nobis nulla possimus rerum similique, suscipit
-            voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut cumque deleniti ducimus
-            eos
-            illo, ipsum itaque magnam maiores perferendis quaerat quia quo reiciendis repellat repellendus repudiandae
-            sequi
-            sint. Nobis.
+            {{ product.docs | safe }}
         </div>
+
     {% else %}
         <div class="fs-1"> Product not found</div>
     {% endif %}
