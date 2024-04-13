@@ -11,9 +11,10 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'admin_description', 'admin_price', 'admin_image', 'category']
-    # list_filter = ['category', 'name', 'price']
 
-    def max_length(self, text, long=10):
+    list_filter = ['category', 'name', 'price']
+
+    def max_length(self, text, long=20):
         if len(text) > long:
             return f"{text[:long]}..."
         return text
@@ -22,7 +23,9 @@ class ProductAdmin(admin.ModelAdmin):
         return self.max_length(text=obj.description)
 
     def admin_price(self, obj):
-        return f"${obj.price}"
+        # return f"${obj.price}"
+        return format_html(
+            f'<p style="background: green; padding: 3px; border-radius: 10px; text-align:center; color: white;"> ${obj.price:,.2f}</p>')
 
     def admin_image(self, obj):
         if obj.image_url:
