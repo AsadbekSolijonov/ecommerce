@@ -10,9 +10,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'admin_description', 'admin_price', 'admin_image', 'category']
-
+    list_display = ['name', 'admin_description', 'admin_price', 'admin_image', 'admin_category']
     list_filter = ['category', 'name', 'price']
+    list_display_links = ['name', 'admin_description', 'admin_category']
+    list_per_page = 7
 
     def max_length(self, text, long=20):
         if len(text) > long:
@@ -33,8 +34,18 @@ class ProductAdmin(admin.ModelAdmin):
                                obj.image_url)
         return format_html('<img src="#" alt="no" />')
 
+    def admin_category(self, obj):
+        return format_html(f"<b style='color: #41768F;'>{obj.category}</b>")
+
 
 admin.site.register(Customer)
-admin.site.register(Order)
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['customer', 'transaction_id', 'complete']
+
+
 admin.site.register(OrderItem)
+
 admin.site.register(ShippingAddress)
