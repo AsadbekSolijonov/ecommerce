@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import *
 
+admin.site.register(ShippingAddress)
+admin.site.register(Customer)
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -38,14 +41,11 @@ class ProductAdmin(admin.ModelAdmin):
         return format_html(f"<b style='color: #41768F;'>{obj.category}</b>")
 
 
-admin.site.register(Customer)
-
-
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['customer', 'transaction_id', 'complete']
 
 
-admin.site.register(OrderItem)
-
-admin.site.register(ShippingAddress)
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['order', 'product', 'quantity']

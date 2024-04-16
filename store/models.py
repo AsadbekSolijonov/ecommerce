@@ -78,6 +78,17 @@ class OrderItem(TimeStampedModel):
     def __str__(self):
         return self.product.name
 
+    @property
+    def get_total_price(self):
+        order_total = self.quantity * self.product.price
+
+        return order_total
+
+    def get_total_items(self):
+        order_item = self.quantity.conjugate()
+
+        return order_item
+
 
 class ShippingAddress(TimeStampedModel):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)

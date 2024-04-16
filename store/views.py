@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from store.models import Product
+from store.models import Product, Order, OrderItem
 
 
 # Create your views here.
@@ -19,11 +19,14 @@ def detail(request, pk):
 
 
 def cart(request):
-    context = {}
+    order = OrderItem.objects.all()
+    context = {
+        "order": order
+    }
     return render(request, 'store/cart.html', context)
 
 
 def checkout(request):
-    context = {}
+    order = OrderItem.objects.all()
+    context = {"order": order}
     return render(request, 'store/checkout.html', context)
-
