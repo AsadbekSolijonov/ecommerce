@@ -75,6 +75,15 @@ class Order(TimeStampedModel):
         total = sum([item.get_items_total_price for item in order_items])
         return total
 
+    @property
+    def get_cart_items(self):
+        order_items = self.orderitem_set.all()
+        total = sum([item.quantity for item in order_items])
+        return total
+
+
+# [1, 2, 3 ,4, 5]
+# [i for i in range(1, 6)]
 
 class OrderItem(TimeStampedModel):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)

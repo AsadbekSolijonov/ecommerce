@@ -54,8 +54,8 @@
                 <!-- Header Show Total Price -->
                 <table class="table">
                     <tr>
-                        <th style="border: none;  text-align: start;">Items: {{ order.count }}</th>
-                        <th style="border: none; text-align: start;">Total: ${{ order.get_total_price }}</th>
+                        <th style="border: none;  text-align: start;">Items: {{ order.get_cart_items }}</th>
+                        <th style="border: none; text-align: start;">Total: ${{ order.get_cart_total }}</th>
                         <th style="border: none">
                             <a class="btn btn-success float-end icon-link icon-link-hover d-flex align-items-center"
                                href="{% url 'store:checkout' %}"
@@ -85,16 +85,16 @@
                 <!-- /Header -->
                 <br>
                 <!-- Body -->
-                {% for order in orders %}
+                {% for item in items %}
                 <div class="display-flex bg-hover align-items-center">
                     <div class="p-2 flex-1 image-zoom">
                         <img class="img-fluid img_card object-fit-cover rounded"
-                             src="{{ order.product.image_url }}" alt="rasm">
+                             src="{{ item.product.image_url }}" alt="rasm">
                     </div>
-                    <div class="p-2 flex-2">{{ order.product.name }}</div>
-                    <div class="p-2 flex-1">${{ order.product.price|floatformat:0 }}</div>
+                    <div class="p-2 flex-2">{{ item.product.name }}</div>
+                    <div class="p-2 flex-1">${{ item.product.price|floatformat:0 }}</div>
                     <div class="d-flex align-items-center p-2 flex-1">
-                        <span>{{ order.quantity }}</span>
+                        <span>{{ item.quantity }}</span>
                         <span>
                         <div class="p-2">
                             <i class="bi bi-caret-up-fill"></i>
@@ -103,7 +103,7 @@
                         </div>
                     </span>
                     </div>
-                    <div class="p-2 flex-1">${{ order.get_items_total_price }}</div>
+                    <div class="p-2 flex-1">${{ item.get_items_total_price }}</div>
                 </div>
                 {% endfor %}
                 <!-- /Body -->
