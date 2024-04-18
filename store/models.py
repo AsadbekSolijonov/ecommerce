@@ -69,6 +69,12 @@ class Order(TimeStampedModel):
     def __str__(self):
         return self.customer.name
 
+    @property
+    def get_cart_total(self):
+        order_items = self.orderitem_set.all()
+        total = sum([item.get_items_total_price for item in order_items])
+        return total
+
 
 class OrderItem(TimeStampedModel):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
@@ -79,15 +85,9 @@ class OrderItem(TimeStampedModel):
         return self.product.name
 
     @property
-    def get_total_price(self):
+    def get_items_total_price(self):
         order_total = self.quantity * self.product.price
-
         return order_total
-
-    def get_total_items(self):
-        order_item = self.quantity.conjugate()
-
-        return order_item
 
 
 class ShippingAddress(TimeStampedModel):

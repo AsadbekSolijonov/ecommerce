@@ -19,9 +19,9 @@ def detail(request, pk):
 
 
 def cart(request):
-    order = OrderItem.objects.all()
+    orders = OrderItem.objects.all()
     context = {
-        "order": order
+        "orders": orders
     }
     return render(request, 'store/cart.html', context)
 
