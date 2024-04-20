@@ -123,16 +123,17 @@
                 <hr>
                 <p class="fs-5 fw-normal">Order Summary</p>
                 <hr>
+                {% for item in items %}
                 <div class="d-flex bg-hover align-items-center">
                     <div class="flex-1">
                         <img class="img-fluid img_card object-fit-cover rounded"
-                             src="{% static '/store/images/600x400.gif' %}" alt="rasm">
+                             src="{{ item.product.image_url }}" alt="rasm">
                     </div>
-                    <div class="flex-1">Product</div>
+                    <div class="flex-1">{{ item.product.name }}</div>
 
                     <!-- Count up/down-->
                     <div class="d-flex align-items-center p-2 flex-1">
-                        <span>2</span>
+                        <span>{{ item.quantity }}</span>
                         <span>
                         <div class="p-2 d-flex flex-column">
                             <i class="bi bi-caret-up-fill"></i>
@@ -142,12 +143,13 @@
                     </div>
                     <!-- /Count up/down-->
 
-                    <div class="flex-1">$23</div>
+                    <div class="flex-1">${{ item.get_items_total_price }}</div>
                 </div>
+                {% endfor %}
                 <!-- /Order Summary -->
                 <hr>
-                <h5>Items: 3</h5>
-                <h5>Total: $40</h5>
+                <h5>Items: {{ order.get_cart_items }}</h5>
+                <h5>Total: ${{ order.get_cart_total }}</h5>
             </div>
         </div>
         <!-- /Col 2 Checkout Total -->

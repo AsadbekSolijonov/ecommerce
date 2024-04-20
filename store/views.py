@@ -36,6 +36,9 @@ def cart(request):
 
 
 def checkout(request):
-    order = OrderItem.objects.all()
-    context = {"order": order}
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    items = order.orderitem_set.all()
+    cart_items = order.get_cart_items
+    context = {'items': items, "order": order, 'cartItems': cart_items}
     return render(request, 'store/checkout.html', context)
