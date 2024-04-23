@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 
 from store.models import Product, Order, OrderItem
@@ -19,16 +20,15 @@ def detail(request, pk):
 
 
 def cart(request):
-    # if request.user.is_authenticated:
-    customer = request.user.customer
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    items = order.orderitem_set.all()
-    cart_items = order.get_cart_items
-    # else:
-    # Create empty cart for now for non-logged in user
-    # items = []
-    # order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
-    # cartItems = order['get_cart_items']
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cart_items = order['get_cart_items']
 
     context = {'items': items, 'order': order, 'cartItems': cart_items}
 
@@ -36,9 +36,19 @@ def cart(request):
 
 
 def checkout(request):
-    customer = request.user.customer
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    items = order.orderitem_set.all()
-    cart_items = order.get_cart_items
-    context = {'items': items, "order": order, 'cartItems': cart_items}
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cart_items = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0, 'shipping': False}
+        cart_items = order['get_cart_items']
+
+    context = {'items': items, 'order': order, 'cartItems': cart_items}
     return render(request, 'store/checkout.html', context)
+
+
+def updateItem(request):
+    return JsonResponse('Item was added', safe=False)

@@ -38,8 +38,8 @@
                     <b>{{ product.name }}</b>
                     <hr>
                     <div class="display-flex flex-wrap">
-                        <button class="btn btn-outline-dark">Add to Card</button>
-                        <button class="btn btn-warning"><a class="text-decoration-none"
+                        <button data-product={{ product.id }} data-action="add" class="btn btn-outline-dark update-cart">Add to Card</button>
+                        <button  class="btn btn-warning"><a class="text-decoration-none"
                                                            href="{% url 'store:detail' product.id %}">View</a></button>
                         <h4 style="display: inline-block; float: right">$ {{ product.price | floatformat:0 }}</h4>
                     </div>
